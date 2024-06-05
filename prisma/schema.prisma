@@ -19,3 +19,10 @@ model product_data {
   img         String
   description String
 }
+
+model user {
+  id       Int    @id @default(autoincrement())
+  username String
+  email    String @unique
+  password String
+}

@@ -1,13 +1,14 @@
-const prisma = require("../db/db.js");
+const prisma = require('../db/db.js');
 
 const saveImage = async (req, res) => {
     try {
-        // console.log(req.body);
+        console.log('Request body:', req.body);
+        console.log('File:', req.file);
 
         if (!req.file || !req.body.name || !req.body.description) {
             return res.status(400).json({
                 success: false,
-                message: "All required fields."
+                message: 'Missing required fields.'
             });
         }
 
@@ -20,7 +21,7 @@ const saveImage = async (req, res) => {
         if (imageAlreadyExist) {
             return res.json({
                 success: false,
-                message: "This image name already exists. Please select another image."
+                message: 'This image name already exists. Please select another image.'
             });
         }
 
@@ -34,13 +35,14 @@ const saveImage = async (req, res) => {
 
         return res.json({
             success: true,
-            message: "File uploaded successfully.",
+            message: 'File uploaded successfully.',
             data: storedImage
         });
     } catch (error) {
-        return res.json({
+        console.error('Error saving image:', error);
+        return res.status(500).json({
             success: false,
-            message: "err."
+            message: 'An error occurred while uploading the image.'
         });
     }
 };

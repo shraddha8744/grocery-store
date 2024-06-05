@@ -6,9 +6,7 @@ const uploadImage = multer({
             cb(null, 'uploads');
         },
         filename: function (req, file, cb) {
-
-            
-
+            console.log(req.body); // Logging the request body
             cb(null, file.originalname);
         }
     })
