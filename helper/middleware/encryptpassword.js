@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 
-
+//------------------when user signup that time encrypt a password
 const encryptPassword=(req,res,next)=>{
     const {username,email,password}=req.body
 

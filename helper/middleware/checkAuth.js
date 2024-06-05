@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const config=require("../config")
 
-
+//-------------take a token and check token is valid or node-----
 const verifyUser=(req,res,next)=>{
     let authtoken=req.headers.authorization
     if(authtoken){

@@ -1,4 +1,5 @@
 const prisma = require('../db/db.js');
+//--------------save image and all image info in db
 
 const saveImage = async (req, res) => {
     try {

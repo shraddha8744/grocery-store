@@ -14,7 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Use the upload image route
 app.use('/api', uploadImageRoute);
+//use this route for signup or login user
 app.use('/user', userRouter);
+//use the get products
 app.use("/product",productRoute)
 
 

@@ -3,7 +3,7 @@ const config = require("../helper/config");
 const UserService=require("../services/user.service")
 const jwt = require('jsonwebtoken');
 
-
+//----------------signup user------------
 const signupUser=async(req,res)=>{
 
     try {
@@ -46,6 +46,7 @@ const signupUser=async(req,res)=>{
     }
 
 }
+//--------------login user and generate token-----------------------
 const loginuser=(req,res)=>{
     const token = jwt.sign({ userId: req.body.userId }, config.auth.secret);
     res.json({
